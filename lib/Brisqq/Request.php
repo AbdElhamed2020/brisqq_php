@@ -13,12 +13,13 @@ class Request
      */
     public function getRequests($url , $headers , $parameters = []){
 
+        $data = http_build_query($parameters);
+        $url = $url."?".$data;
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt_array($curl, $parameters);
         $response = curl_exec($curl);
-        $result = json_decode($response , true);
+        $result = json_decode($response);
         curl_close($curl); // Close the connection
         return $result;
     }

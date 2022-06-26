@@ -28,7 +28,7 @@ class Connector
      * @param $parameters
      * @return mixed
      */
-    public function getBrisqqToken($tokenUrl , $headers , $parameters = null){
+    public function getBrisqqToken($tokenUrl , $headers , $parameters = []){
 
         return $this->dataRequest->getRequests($tokenUrl , $headers , $parameters);
 
@@ -46,5 +46,3 @@ class Connector
     }
 
 }
-
-
